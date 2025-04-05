@@ -17,7 +17,6 @@ export default function Game() {
           <Player name="Player 3" position="right" />
           
         </div>
-        <Controls/>
       </div>
     );
 }
