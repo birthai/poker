@@ -1,10 +1,9 @@
 
 import React from "react";
 
-const Player = ({ name, cards, position }) => {
+const Player = ({ name, cards, position,profile }) => {
   return (
     <div className="flex flex-col items-center">
-      <div className="text-white text-sm mb-1">{name}</div>
       <div className="flex gap-1">
         {cards.map((card, idx) => (
           <div
@@ -15,6 +14,8 @@ const Player = ({ name, cards, position }) => {
           </div>
         ))}
       </div>
+      <img src={profile} style={{width:50,height:50,borderRadius:25}}/>
+      <div className="text-white text-sm mb-1">{name}</div>
     </div>
   );
 };
