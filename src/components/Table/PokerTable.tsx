@@ -1,19 +1,28 @@
-// src/components/Table/PokerTable.jsx
 import React from "react";
 import Player from "../Player/Player";
 import Card from "../Card/Card";
-import UserProfile from '../../assets/profile.jpg'
+import UserProfile from '../../assets/profile.jpg';
 
-const PokerTable = () => {
-    const players = [
+interface CardType {
+  suit: string;
+  value: string;
+}
+
+interface PlayerType {
+  name: string;
+  cards: CardType[];
+  profile: string;
+}
+
+const PokerTable: React.FC = () => {
+    const players: PlayerType[] = [
         { name: "Player 1", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
         { name: "Player 2", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
         { name: "Player 3", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
         { name: "Player 4", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
     ];
 
-    // const communityCards = ["🃑", "🃒", "🃓", "🃔", "🃕"];
-    const communityCards = [
+    const communityCards: CardType[] = [
         { suit: "♠", value: "A" },
         { suit: "♥", value: "K" },
         { suit: "♦", value: "Q" },
@@ -21,35 +30,14 @@ const PokerTable = () => {
         { suit: "♠", value: "10" }
     ];
 
-    const playerOne =[
-        { suit: "♠", value: "A" },
-        { suit: "♥", value: "K" },
-    ]
-    const playerTwo =[
-        { suit: "♠", value: "A" },
-        { suit: "♥", value: "K" },
-    ]
-    const playerThree =[
-        { suit: "♠", value: "A" },
-        { suit: "♥", value: "K" },
-    ]
-    const playerFour =[
-        { suit: "♠", value: "A" },
-        { suit: "♥", value: "K" },
-    ]
-
     return (
-        <div className="w-full h-screen  flex items-center justify-center">
-
+        <div className="w-full h-screen flex items-center justify-center">
             {/* Player 1 - Top */}
-
-            <div
-                style={{ position: 'absolute', left: '3%' }}>
+            <div style={{ position: 'absolute', left: '3%' }}>
                 <Player name={players[0].name} cards={players[0].cards} profile={players[0].profile} position="left" />
             </div>
 
             {/* Player 2 - Right */}
-
             <div style={{ position: 'absolute', bottom: '3%', left: '30%' }}>
                 <Player name={players[1].name} cards={players[1].cards} profile={players[1].profile} position="bottom" />
             </div>
@@ -64,15 +52,21 @@ const PokerTable = () => {
                 <Player name={players[3].name} cards={players[3].cards} profile={players[3].profile} position="right" />
             </div>
 
-
             {/* Community Cards - Center */}
-            <div style={{height:'10%',width:'24%',position:'absolute',justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row'}}>
+            <div style={{
+                height: '10%',
+                width: '24%',
+                position: 'absolute',
+                justifyContent: 'center',
+                alignItems: 'center',
+                display: 'flex',
+                flexDirection: 'row'
+            }}>
                 {communityCards.map((card, idx) => (
                     <Card key={idx} suit={card.suit} value={card.value} />
                 ))}
             </div>
         </div>
-
     );
 };
 

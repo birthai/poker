@@ -3,7 +3,7 @@ import Controls from '../Controls/Controls'
 
 export default function Game() {
     const handleAction = (action) => {
-        console.log(action); // می‌توانید اینجا منطق بازی را اضافه کنید
+        console.log(action); 
     };
 
     return (

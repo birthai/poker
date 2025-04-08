@@ -2,7 +2,7 @@ import React from "react";
 import PokerTable from "./components/Table/PokerTable";
 import backgroundImage from './assets/1074.png';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="w-full h-screen flex items-center justify-center overflow-hidden relative bg-[#43A047]">
       <img 
