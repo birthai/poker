@@ -6,45 +6,69 @@ import UserProfile from '../../assets/profile.jpg'
 
 const PokerTable = () => {
     const players = [
-        { name: "Player 1", cards: ["🂡", "🂱"] ,profile:UserProfile},
-        { name: "Player 2", cards: ["🂢", "🂲"] ,profile:UserProfile},
-        { name: "Player 3", cards: ["🂣", "🂳"],profile:UserProfile },
-        { name: "Player 4", cards: ["🂤", "🂴"] ,profile:UserProfile},
+        { name: "Player 1", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
+        { name: "Player 2", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
+        { name: "Player 3", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
+        { name: "Player 4", cards: [{ suit: "♠", value: "A" },{ suit: "♠", value: "A" }], profile: UserProfile },
     ];
 
-    const communityCards = ["🃑", "🃒", "🃓", "🃔", "🃕"];
+    // const communityCards = ["🃑", "🃒", "🃓", "🃔", "🃕"];
+    const communityCards = [
+        { suit: "♠", value: "A" },
+        { suit: "♥", value: "K" },
+        { suit: "♦", value: "Q" },
+        { suit: "♣", value: "J" },
+        { suit: "♠", value: "10" }
+    ];
+
+    const playerOne =[
+        { suit: "♠", value: "A" },
+        { suit: "♥", value: "K" },
+    ]
+    const playerTwo =[
+        { suit: "♠", value: "A" },
+        { suit: "♥", value: "K" },
+    ]
+    const playerThree =[
+        { suit: "♠", value: "A" },
+        { suit: "♥", value: "K" },
+    ]
+    const playerFour =[
+        { suit: "♠", value: "A" },
+        { suit: "♥", value: "K" },
+    ]
 
     return (
         <div className="w-full h-screen  flex items-center justify-center">
 
             {/* Player 1 - Top */}
-    
-            <div 
-            style={{position:'absolute',left:'3%'}}>
-            <Player name={players[0].name} cards={players[0].cards} profile={players[0].profile} position="left" />
+
+            <div
+                style={{ position: 'absolute', left: '3%' }}>
+                <Player name={players[0].name} cards={players[0].cards} profile={players[0].profile} position="left" />
             </div>
 
             {/* Player 2 - Right */}
-         
-            <div style={{position:'absolute',bottom:'3%',left:'30%'}}>
-            <Player name={players[1].name} cards={players[1].cards} profile={players[1].profile} position="bottom"/>
+
+            <div style={{ position: 'absolute', bottom: '3%', left: '30%' }}>
+                <Player name={players[1].name} cards={players[1].cards} profile={players[1].profile} position="bottom" />
             </div>
 
             {/* Player 3 - Bottom */}
-            <div style={{position:'absolute',bottom:'3%',right:'30%'}}>
-            <Player name={players[2].name} cards={players[2].cards} profile={players[2].profile} position="bottom"/>
+            <div style={{ position: 'absolute', bottom: '3%', right: '30%' }}>
+                <Player name={players[2].name} cards={players[2].cards} profile={players[2].profile} position="bottom" />
             </div>
 
             {/* Player 4 - Left */}
-            <div style={{position:'absolute',right:'3%'}}>
-                <Player name={players[3].name} cards={players[3].cards} profile={players[3].profile} position="right"/>
+            <div style={{ position: 'absolute', right: '3%' }}>
+                <Player name={players[3].name} cards={players[3].cards} profile={players[3].profile} position="right" />
             </div>
 
 
             {/* Community Cards - Center */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 flex gap-3">
+            <div style={{height:'10%',width:'24%',position:'absolute',justifyContent:'center',alignItems:'center',display:'flex',flexDirection:'row'}}>
                 {communityCards.map((card, idx) => (
-                    <Card key={idx} value={card} />
+                    <Card key={idx} suit={card.suit} value={card.value} />
                 ))}
             </div>
         </div>
