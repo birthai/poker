@@ -1,21 +1,28 @@
 
 import React from "react";
+import Card from "../Card/Card";
 
-const Player = ({ name, cards, position,profile }) => {
+const Player = ({ name, cards, position, profile }) => {
   return (
-    <div className="flex flex-col items-center">
+    <div style={{
+      display: 'flex',
+      flexDirection: position === 'top' ? 'row' :
+        position === 'bottom' ? 'column' :
+          position === 'left' ? 'row' :
+            position === 'right' ? 'row' : 'row',
+      direction: position === 'left' ? 'rtl' :
+        position === 'right' ? 'ltr' : null
+    }}>
       <div className="flex gap-1">
         {cards.map((card, idx) => (
-          <div
-            key={idx}
-            className="w-10 h-14 bg-white rounded-md shadow flex items-center justify-center text-xl"
-          >
-            {card}
-          </div>
+          <Card key={idx} suit={card.suit} value={card.value} />
         ))}
       </div>
-      <img src={profile} style={{width:50,height:50,borderRadius:25}}/>
-      <div className="text-white text-sm mb-1">{name}</div>
+      <div>
+        <img src={profile} style={{ width: 50, height: 50, borderRadius: 25 }} />
+        <div className="text-white text-sm mb-1">{name}</div>
+      </div>
+
     </div>
   );
 };
