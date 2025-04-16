@@ -2,6 +2,8 @@ import React from "react";
 import Player from "../Player/Player";
 import Card from "../Card/Card";
 import UserProfile from '../../assets/profile.jpg';
+import backgroundImage from '../../assets/background.svg';
+
 
 interface CardType {
   suit: string;
@@ -31,24 +33,35 @@ const PokerTable: React.FC = () => {
     ];
 
     return (
-        <div className="w-full h-screen flex items-center justify-center">
+        <div 
+            className="w-full h-full flex items-center justify-center relative" 
+            style={{ 
+                backgroundImage: `url(${backgroundImage})`, 
+                backgroundSize: '100% auto',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat',
+                overflow: 'visible',
+                backgroundPosition: 'center',
+                backgroundRepeat: 'no-repeat'
+            }}
+        >
             {/* Player 1 - Top */}
-            <div style={{ position: 'absolute', left: '3%' }}>
+            <div style={{ position: 'absolute', left: '0%', top: '50%', transform: 'translateY(-50%)' }}>
                 <Player name={players[0].name} cards={players[0].cards} profile={players[0].profile} position="left" />
             </div>
 
-            {/* Player 2 - Right */}
-            <div style={{ position: 'absolute', bottom: '3%', left: '30%' }}>
+            {/* Player 2 - Bottom Left */}
+            <div style={{ position: 'fixed', right: '30%', bottom: '3%' , transform: 'translateY(-50%)' }}>
                 <Player name={players[1].name} cards={players[1].cards} profile={players[1].profile} position="bottom" />
             </div>
 
-            {/* Player 3 - Bottom */}
-            <div style={{ position: 'absolute', bottom: '3%', right: '30%' }}>
+            {/* Player 3 - Bottom Right */}
+            <div style={{ position: 'absolute', left: '30%', bottom: '3%' , transform: 'translateY(-50%)' }}>
                 <Player name={players[2].name} cards={players[2].cards} profile={players[2].profile} position="bottom" />
             </div>
 
-            {/* Player 4 - Left */}
-            <div style={{ position: 'absolute', right: '3%' }}>
+            {/* Player 4 - Center Right */}
+            <div style={{ position: 'absolute', right: '0%', top: '50%', transform: 'translateY(-50%)' }}>
                 <Player name={players[3].name} cards={players[3].cards} profile={players[3].profile} position="right" />
             </div>
 
