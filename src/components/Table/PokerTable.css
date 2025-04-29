@@ -48,12 +48,12 @@
     position: absolute;
   }
   
-  .player-0 { top: 5%; left: 50%; transform: translate(-50%, 0); }
-  .player-1 { top: 20%; right: 5%; }
+  .player-0 { top: -8%; left: 50%; transform: translate(-50%, 0); }
+  .player-1 { top: 10%; right: 15%; }
   .player-2 { top: 50%; right: 0; transform: translateY(-50%); }
-  .player-3 { bottom: 20%; right: 5%; }
-  .player-4 { bottom: 5%; left: 50%; transform: translate(-50%, 0); }
-  .player-5 { bottom: 20%; left: 5%; }
+  .player-3 { bottom: 2%; right: 15%; }
+  .player-4 { bottom:-8%; left: 50%; transform: translate(-50%, 0); }
+  .player-5 { bottom: 2%; left: 15%; }
   .player-6 { top: 50%; left: 0; transform: translateY(-50%); }
-  .player-7 { top: 20%; left: 5%; }
+  .player-7 { top: 10%; left: 15%; }
   
