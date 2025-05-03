@@ -1,59 +1,27 @@
-import React from "react";
-import Card from "../Card/Card";
 
-type Position = 'top' | 'bottom' | 'left' | 'right';
+//============================================
 
-interface Card {
-  suit: string;
-  value: string;
-}
+import React from 'react';
+import './Player.css';
 
 interface PlayerProps {
   name: string;
-  cards: Card[];
-  position: Position;
-  profile: string;
+  balance: number;
+  profileImage: string;
 }
 
-const Player: React.FC<PlayerProps> = ({ name, cards, position, profile }) => {
+const Player: React.FC<PlayerProps> = ({ name, balance, profileImage }) => {
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: position === 'top' ? 'row' :
-        position === 'bottom' ? 'column' :
-          position === 'left' ? 'row' :
-            position === 'right' ? 'row' : 'row',
-      direction: position === 'left' ? 'ltr' :
-        position === 'right' ? undefined: undefined
-    }}>
-      {position === 'left' ? (
-        <>
-          <div>
-            <img src={profile} style={{ width: 50, height: 50, borderRadius: 25 }} alt={`${name}'s profile`} />
-            <div className="text-white text-sm mb-1">{name}</div>
-          </div>
-          <div className="flex gap-1">
-            {cards.map((card, idx) => (
-              <Card key={idx} suit={card.suit} value={card.value} />
-            ))}
-          </div>
-        </>
-      ) : (
-        <>
-        <div className="flex gap-1">
-            {cards.map((card, idx) => (
-              <Card key={idx} suit={card.suit} value={card.value} />
-            ))}
-          </div>
-          <div>
-            <img src={profile} style={{ width: 50, height: 50, borderRadius: 25 }} alt={`${name}'s profile`} />
-            <div className="text-white text-sm mb-1">{name}</div>
-          </div>
-          
-        </>
-      )}
-      
-      
+    <div className="player-card">
+      <img src={profileImage} alt={`${name}'s profile`} className="player-avatar" />
+      <div className="player-info">
+        <div className="player-name">{name}</div>
+        <div className="player-balance">${balance}</div>
+      </div>
+      <div className="player-cards">
+        <div className="card-back"></div>
+        <div className="card-back"></div>
+      </div>
     </div>
   );
 };

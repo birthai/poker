@@ -8,17 +8,17 @@ const App: React.FC = () => {
   const { gameState, handlePlayerAction } = useGame();
 
   return (
-    <div className="w-full h-screen flex items-center justify-center overflow-hidden relative bg-[#43A047]">
-      <img 
-        src={backgroundImage} 
-        alt="Poker Table"
-        className="absolute inset-0 w-full h-full object-cover"
-      />
-      <div className="relative z-10" style={{width:'100%'}}>
+    <div className="w-full h-screen flex items-center justify-center overflow-hidden relative">
+      
+      <div className="absolute inset-0 w-full h-full">
+
         <PokerTable 
           players={gameState.players}
           communityCards={gameState.communityCards}
         />
+      </div>
+
+      <div className="relative z-10" style={{ width: '100%', position:'absolute',bottom:0}}>
         {gameState.players[gameState.currentPlayer].isHuman && (
           <Controls onAction={handlePlayerAction} />
         )}
